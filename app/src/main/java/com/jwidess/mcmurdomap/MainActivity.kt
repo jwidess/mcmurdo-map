@@ -170,6 +170,7 @@ fun MapAppScreen(
     var isSearchExpanded by remember { mutableStateOf(false) }
     var activeCategory by remember { mutableStateOf<String?>(null) }
     var showHelpDialog by remember { mutableStateOf(false) }
+    var updateState by remember { mutableStateOf<UpdateState>(UpdateState.Idle) }
 
     val categories = remember {
         listOf(
@@ -650,24 +651,202 @@ fun MapAppScreen(
                                 color = Color(0xFFF8FAFC),
                                 border = BorderStroke(1.dp, Color(0xFFE2E8F0))
                             ) {
-                                Row(
+                                Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(horizontal = 12.dp, vertical = if (isLandscape) 6.dp else 8.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.SpaceBetween
+                                    verticalArrangement = Arrangement.spacedBy(6.dp)
                                 ) {
-                                    Text(
-                                        text = "Version",
-                                        fontSize = 12.sp,
-                                        color = Color(0xFF5D5D52)
-                                    )
-                                    Text(
-                                        text = "v${BuildConfig.VERSION_NAME}",
-                                        fontSize = 12.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = Color(0xFF0085CA)
-                                    )
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Text(
+                                            text = "App Version:",
+                                            fontSize = 11.sp,
+                                            color = Color(0xFF5D5D52)
+                                        )
+                                        Text(
+                                            text = "v${BuildConfig.VERSION_NAME}",
+                                            fontSize = 12.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color(0xFF0085CA)
+                                        )
+                                    }
+
+                                    when (val state = updateState) {
+                                        is UpdateState.Idle -> {
+                                            OutlinedButton(
+                                                onClick = {
+                                                    coroutineScope.launch {
+                                                        updateState = UpdateState.Checking
+                                                        updateState = UpdateHelper.checkForUpdate(BuildConfig.VERSION_NAME)
+                                                    }
+                                                },
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .height(30.dp),
+                                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 0.dp),
+                                                shape = RoundedCornerShape(6.dp),
+                                                colors = ButtonDefaults.outlinedButtonColors(
+                                                    contentColor = Color(0xFF162E51)
+                                                ),
+                                                border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.Refresh,
+                                                    contentDescription = "Check for Updates",
+                                                    modifier = Modifier.size(13.dp),
+                                                    tint = Color(0xFF162E51)
+                                                )
+                                                Spacer(modifier = Modifier.width(6.dp))
+                                                Text(
+                                                    text = "Check for Updates",
+                                                    fontSize = 11.5.sp,
+                                                    fontWeight = FontWeight.SemiBold
+                                                )
+                                            }
+                                        }
+                                        is UpdateState.Checking -> {
+                                            Row(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(vertical = 4.dp),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.Center
+                                            ) {
+                                                CircularProgressIndicator(
+                                                    modifier = Modifier.size(13.dp),
+                                                    strokeWidth = 2.dp,
+                                                    color = Color(0xFF0085CA)
+                                                )
+                                                Spacer(modifier = Modifier.width(8.dp))
+                                                Text(
+                                                    text = "Connecting to GitHub...",
+                                                    fontSize = 11.sp,
+                                                    color = Color(0xFF5D5D52)
+                                                )
+                                            }
+                                        }
+                                        is UpdateState.Available -> {
+                                            Column(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .background(Color(0xFFEFF6FF), RoundedCornerShape(6.dp))
+                                                    .border(1.dp, Color(0xFFBFDBFE), RoundedCornerShape(6.dp))
+                                                    .padding(8.dp),
+                                                verticalArrangement = Arrangement.spacedBy(6.dp)
+                                            ) {
+                                                Row(
+                                                    modifier = Modifier.fillMaxWidth(),
+                                                    verticalAlignment = Alignment.CenterVertically
+                                                ) {
+                                                    Icon(
+                                                        imageVector = Icons.Default.SystemUpdate,
+                                                        contentDescription = "Update available",
+                                                        modifier = Modifier.size(15.dp),
+                                                        tint = Color(0xFF2563EB)
+                                                    )
+                                                    Spacer(modifier = Modifier.width(6.dp))
+                                                    Text(
+                                                        text = "Update Available: ${state.version}",
+                                                        fontSize = 12.sp,
+                                                        fontWeight = FontWeight.Bold,
+                                                        color = Color(0xFF1E40AF)
+                                                    )
+                                                }
+                                                Button(
+                                                    onClick = {
+                                                        try {
+                                                            val url = state.downloadUrl ?: state.releaseUrl
+                                                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                                                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                            }
+                                                            context.startActivity(intent)
+                                                        } catch (e: Exception) {}
+                                                    },
+                                                    modifier = Modifier
+                                                        .fillMaxWidth()
+                                                        .height(28.dp),
+                                                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 0.dp),
+                                                    shape = RoundedCornerShape(4.dp),
+                                                    colors = ButtonDefaults.buttonColors(
+                                                        containerColor = Color(0xFF2563EB),
+                                                        contentColor = Color.White
+                                                    )
+                                                ) {
+                                                    Text(
+                                                        text = "Download on GitHub",
+                                                        fontSize = 11.sp,
+                                                        fontWeight = FontWeight.SemiBold
+                                                    )
+                                                }
+                                            }
+                                        }
+                                        is UpdateState.UpToDate -> {
+                                            Row(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(vertical = 2.dp),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.SpaceBetween
+                                            ) {
+                                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                                    Icon(
+                                                        imageVector = Icons.Default.CheckCircle,
+                                                        contentDescription = "Up to date",
+                                                        modifier = Modifier.size(13.dp),
+                                                        tint = Color(0xFF059669)
+                                                    )
+                                                    Spacer(modifier = Modifier.width(4.dp))
+                                                    Text(
+                                                        text = "Up to date (${state.version})",
+                                                        fontSize = 11.sp,
+                                                        fontWeight = FontWeight.Medium,
+                                                        color = Color(0xFF059669)
+                                                    )
+                                                }
+                                                Text(
+                                                    text = "Check again",
+                                                    fontSize = 11.sp,
+                                                    color = Color(0xFF0085CA),
+                                                    textDecoration = TextDecoration.Underline,
+                                                    modifier = Modifier.clickable {
+                                                        coroutineScope.launch {
+                                                            updateState = UpdateState.Checking
+                                                            updateState = UpdateHelper.checkForUpdate(BuildConfig.VERSION_NAME)
+                                                        }
+                                                    }
+                                                )
+                                            }
+                                        }
+                                        is UpdateState.Error -> {
+                                            Column(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                verticalArrangement = Arrangement.spacedBy(2.dp)
+                                            ) {
+                                                Text(
+                                                    text = state.message,
+                                                    fontSize = 11.sp,
+                                                    color = Color(0xFFDC2626)
+                                                )
+                                                Text(
+                                                    text = "Retry",
+                                                    fontSize = 11.sp,
+                                                    color = Color(0xFF0085CA),
+                                                    fontWeight = FontWeight.SemiBold,
+                                                    textDecoration = TextDecoration.Underline,
+                                                    modifier = Modifier.clickable {
+                                                        coroutineScope.launch {
+                                                            updateState = UpdateState.Checking
+                                                            updateState = UpdateHelper.checkForUpdate(BuildConfig.VERSION_NAME)
+                                                        }
+                                                    }
+                                                )
+                                            }
+                                        }
+                                    }
                                 }
                             }
 
