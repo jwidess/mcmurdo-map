@@ -26,7 +26,7 @@ jobs:
 
   build-apk:
     needs: release-please
-    if: ${{ needs.release-please.outputs.release_created == 'true' || needs.release-please.outputs.release_created == true }}
+    if: ${{ always() && (needs.release-please.outputs.release_created == 'true' || needs.release-please.outputs.release_created == true || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -45,7 +45,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build Release APK
-        run: ./gradlew assembleRelease -PversionName=${{ needs.release-please.outputs.version }}
+        run: ./gradlew assembleRelease -PversionName=${{ needs.release-please.outputs.version || 'test-build' }}
 
       - name: Prepare APK artifact
         run: cp app/build/outputs/apk/release/app-release.apk McMurdoStationMap.apk
@@ -53,10 +53,11 @@ jobs:
       - name: Upload APK as Workflow Artifact
         uses: actions/upload-artifact@v7
         with:
-          name: McMurdoStationMap-${{ needs.release-please.outputs.tag_name }}
+          name: McMurdoStationMap-${{ needs.release-please.outputs.tag_name || 'test-build' }}
           path: McMurdoStationMap.apk
 
       - name: Upload APK to GitHub Release
+        if: ${{ needs.release-please.outputs.release_created == 'true' || needs.release-please.outputs.release_created == true }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
