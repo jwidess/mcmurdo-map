@@ -1,0 +1,1553 @@
+[
+  {
+    "id": "B001",
+    "name": "Crary Science and Engineering Center",
+    "photo": "001-a.jpg",
+    "description": "CSEC is a scientific research facility with offices, storage, library, an aquarium, and laboratories for biology, atmospheric science and    earth science research.  The building is configured in three \"phases\" at different elevations connected by a walkway spine.  A dedicated    1,900 foot pipeline supplies seawater to the building's aquarium from the station seawater intake well.",
+    "construction": "1988-1993",
+    "occupancy": "285",
+    "aeds": [
+      "Mounted in Phase 1 near Manager's Office"
+    ],
+    "muster_points": [
+      "All Phases, Building 155 Handwashing Station"
+    ],
+    "info_sheet": "B001 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B002",
+    "name": "CSEC Emergency GENSE",
+    "photo": "002.jpg",
+    "description": "Houses a 400kW Caterpillar diesel-engine generator connected to the CSEC (Building 1) to provide emergency back-up power.    Building 2 also supplies power to Building 1's emergency lighting, air handling units, heat exchangers, boilers, walk-in freezers,    and environmental rooms. It is a single-room building with one personnel door and one overhead roll-up door.  A 2-ton trolley    crane is provided on an overhead monorail.",
+    "construction": "1993",
+    "occupancy": "2",
+    "muster_points": [
+      "Building 001"
+    ],
+    "info_sheet": "B002 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B003",
+    "name": "Core Storage",
+    "photo": "003.jpg",
+    "description": "Provides refrigerated storage at McMurdo Station and supplements the refrigerated storage capacity of Building 001, CSEC. It currently    does not provide freezer space, but an addition planned for construction during the 1999 winter will add the capacity for    freezer storage space. Building 003 is an insulated building with a gabled roof located near Building 001. It is composed of three areas,    the entryway/foyer, refrigerated room, and attic space with mechanical room.",
+    "construction": "1996",
+    "muster_points": [
+      "Building 001"
+    ],
+    "info_sheet": "B003 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B004",
+    "name": "Science Support Center",
+    "photo": "004.jpg",
+    "description": "Two-story multi-department building. The top floor of the SSC houses the Field Training classroom, offices, kitchen, two bathrooms and the Search And Rescue HQ. The second floor 'back bay' includes additional storage space for Field Science Support equipment and a snow machine instruction area. This area is designated as McMurdo Stations backup MCI casualty collection facility. The Mechanical Equipment Center (MEC) located on the bottom floor is used for the maintenance and repair of mechanical equipment such as snow machines, generators and 2-stroke power tools. The first floor contains a full-featured shop, storage rooms, a janitor closet and two restrooms.",
+    "construction": "February 2001 - August 2002",
+    "occupancy": "172",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B007",
+    "name": "Chapel of the Snows",
+    "photo": "007.jpg",
+    "description": "Single-story structure with a center high-bay nave flanked by offices on one side and by storage and furnace rooms on the other. Used    as a non-denominational chapel and NSFA chaplain's office.",
+    "construction": "1989",
+    "occupancy": "180 (verify with firehouse)",
+    "muster_points": [
+      "Building 165"
+    ],
+    "info_sheet": "B007 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B008",
+    "name": "Unidentified Structure",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B010",
+    "name": "Hut Ten",
+    "photo": "010.jpg",
+    "description": "Used as a community center for parties and conferences.  Includes living and dining rooms, a kitchen, three bedrooms, and two bathrooms. It also    provides special housing for distinquished visitors (DV's).",
+    "construction": "1957; remodel in 1988",
+    "occupancy": "60",
+    "muster_points": [
+      "Building 165"
+    ],
+    "info_sheet": "B010 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B016",
+    "name": "McMurdo RF Shelter",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B017",
+    "name": "Equipment Operations",
+    "photo": "017.jpg",
+    "description": "Single-story, skid-mounted building used as office space and tool storage for the Equipment Operations work center.",
+    "occupancy": "3",
+    "aeds": [
+      "Fleet Ops, mounted above kitchenette area"
+    ],
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B017 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B033",
+    "name": "Reuse/Resale Office",
+    "photo": "033.jpg",
+    "description": "Currently used for office space",
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B033 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B034",
+    "name": "Warm-up Shack",
+    "photo": "034.jpg",
+    "description": "A small, single-story structure located in the shadow of the Waste Barn. Building 34 is used as office space for solid waste personnel.",
+    "construction": "1997-1998",
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B034 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B035",
+    "name": "Warm-up Shack",
+    "photo": "035.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "construction": "1997-1998"
+  },
+  {
+    "id": "B036",
+    "name": "Helo PAX Terminal",
+    "photo": "036.jpg",
+    "description": "Passenger waiting and processing area for helicopter flights.",
+    "muster_points": [
+      "Building 159"
+    ],
+    "info_sheet": "B036 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B037",
+    "name": "Pump House (Helo Pad)",
+    "photo": "037.jpg",
+    "description": "Houses fuel distribution pumps for helicopters.",
+    "muster_points": [
+      "Building 36"
+    ],
+    "info_sheet": "B037 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B039",
+    "name": "Ship Off Load Command Center",
+    "photo": "039.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 183"
+    ],
+    "info_sheet": "B039 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B063",
+    "name": "MWR (Recreation)",
+    "photo": "063.jpg",
+    "description": "Two-story Quonset hut containing craft shops on the second floor    and a weight room and two-lane bowling alley on the first floor.",
+    "construction": "1958",
+    "occupancy": "82",
+    "info_sheet": "B063 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B067",
+    "name": "IMP-8 Shelter",
+    "photo": "067.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "construction": "1997-1998",
+    "muster_points": [
+      "Building 140"
+    ],
+    "info_sheet": "B067 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B068",
+    "name": "Crater Hill Portacom",
+    "photo": "068.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "info_sheet": "B068 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B069",
+    "name": "NASA RADOME MTRS-2",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B070",
+    "name": "Communications Shelter",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B071",
+    "name": "RadarSat",
+    "photo": "071.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 189"
+    ]
+  },
+  {
+    "id": "B072",
+    "name": "Oil Separator Building",
+    "photo": "072.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 175"
+    ]
+  },
+  {
+    "id": "B073",
+    "name": "Cargo Warehouse - BFC Food Room",
+    "photo": "073.jpg",
+    "description": "Two-story arched building used as a cargo packing and crating area and a food warehouse and issue center for scientific field parties.    Includes a high-bay packing and crating area and wire mesh science equipment cages on the first floor, and a food warehouse area on a mezzanine level.",
+    "construction": "1958",
+    "occupancy": "11",
+    "muster_points": [
+      "Building 004, SSC"
+    ],
+    "info_sheet": "B073 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B075",
+    "name": "Gymnasium",
+    "photo": "075.jpg",
+    "description": "Gymnasium facility used for various indoor sports. Contains a court area marked as a full-sized volleyball court and an undersized    basketball court.",
+    "construction": "1959",
+    "occupancy": "248",
+    "aeds": [
+      "Mounted in inner entrance near Rock Wall."
+    ],
+    "muster_points": [
+      "Building 159"
+    ],
+    "info_sheet": "B075 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B076",
+    "name": "Coffee House",
+    "photo": "076.jpg",
+    "description": "Single-story Quonset hut with a Jamesway addition forming a \"T\" plan.  It is used as a coffee and wine bar and includes a large open    seating area, bar, storage room, and two restrooms.",
+    "construction": "1959",
+    "occupancy": "161",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B076 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B078",
+    "name": "Areobics and Exercise Room",
+    "photo": "078.jpg",
+    "description": "Single-story building used as an exercise gym, housing aerobic and Nautilus equipment such as stair climbers and treadmills.    The building includes a restroom and janitor's closet.",
+    "construction": "1960",
+    "occupancy": "27",
+    "aeds": [
+      "Mounted on right-hand wall after the entrance door"
+    ],
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B078 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B082",
+    "name": "Balloon Inflation Tower",
+    "photo": "082.jpg",
+    "description": "This building, which is composed of two connected buildings, is used for weather balloon storage, preparation, inflation, and launch.    Building 81, which is now connected to Building 82, was originally constructed to house a hydrogen generator used to inflate    the balloons.  The generator has since been removed.  Building 82 is a high-bay facility used for storage, preheating, inflating,    and launching.",
+    "construction": "1960 (Building 82), 1985/86 (Building 81)",
+    "occupancy": "6",
+    "info_sheet": "B082 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B084",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B085",
+    "name": "Recompression Chamber",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B087",
+    "name": "Electrical Warehouse",
+    "photo": "087b.jpg",
+    "description": "Single-story, high-bay building originally constructed as a nuclear power plant and converted for use as a heated warehouse. Currently used    for the storage of electrical equipment, light fixtures, and a small quantity of combustible liquids.",
+    "construction": "1960",
+    "occupancy": "9",
+    "info_sheet": "B087 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B090",
+    "name": "Truck Scale",
+    "photo": "090.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B107",
+    "name": "Southern Exposure",
+    "photo": "107.jpg",
+    "description": "Single-story building used as a drinking establishment. Includes an assembly area with wet bar, restrooms, a storage room, and a mechanical room.",
+    "construction": "1988",
+    "occupancy": "85",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B107 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B108",
+    "name": "Gallagher's Club",
+    "photo": "108.jpg",
+    "description": "Single-story building used as a drinking establishment. Includes an assembly area with wet bar, a snack bar with grill, restrooms, a storage room,    and a mechanical room.",
+    "construction": "1988",
+    "occupancy": "128",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B108 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B115",
+    "name": "McMurdo Pier",
+    "photo": "115.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B120",
+    "name": "IT - Food Storage",
+    "photo": "120.jpg",
+    "description": "Two-story Navy Bureau of Yards & Docks Warehouse, first floor used for warm food storage, second floor has office space,    warehousing, and a PC technician lab used for computer and communications equipment storage and repair.",
+    "construction": "1963",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 140"
+    ],
+    "info_sheet": "B120 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B121",
+    "name": "Electrical Warehouse (CMO Beer & Soda)",
+    "photo": "121.jpg",
+    "description": "Two-story Navy Bureau of Yards & Docks Warehouse Type 1 or 2. First floor used for MWR beer and soda storage and second floor used for    electrical stock storage.",
+    "construction": "1963",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 140"
+    ],
+    "info_sheet": "B121 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B122",
+    "name": "Skua Central",
+    "photo": "122.jpg",
+    "description": "Skua Central, used to hold items that are recycled within the community.",
+    "muster_points": [
+      "Building 175"
+    ],
+    "info_sheet": "B122 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B124",
+    "name": "Seawater Intake Pump House",
+    "photo": "124.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 196"
+    ]
+  },
+  {
+    "id": "B125",
+    "name": "NSF Dorm",
+    "photo": "125.jpg",
+    "description": "Single-story building used as housing for NSF/OPP employees and distinguished visitors.  Includes 6 one-person rooms, a lounge, a    kitchenette/laundry room, two restrooms and a furnace room.",
+    "construction": "1963",
+    "occupancy": "6",
+    "info_sheet": "B125 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B126",
+    "name": "Old Water Plant Warehouse",
+    "photo": "126.jpg",
+    "description": "Single-story, prefabricated, steel frame structure. The interior partitions are wood frame and gypsum board. It is used as South Pole cargo storage for do not freeze items.",
+    "construction": "1964",
+    "occupancy": "11",
+    "info_sheet": "B126 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B129",
+    "name": "Helicopter Hangar",
+    "photo": "129.jpg",
+    "description": "Single-story, prefabricated, steel structure with steel framing as its main structure.",
+    "construction": "1964",
+    "occupancy": "8",
+    "muster_points": [
+      "Building 159"
+    ],
+    "info_sheet": "B129 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B132",
+    "name": "Auto Materials Warehouse",
+    "photo": "132.jpg",
+    "description": "Two-story heated warehouse used for the storage of automotive parts.",
+    "construction": "1964",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B132 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B136",
+    "name": "Utilities - Facilities",
+    "photo": "136.jpg",
+    "description": "Two-story, prefabricated, steel frame structure with insulated metal siding.  The interior is a combinations of steel and wood framing with metal and wood panels.",
+    "construction": "1964",
+    "occupancy": "60",
+    "aeds": [
+      "Mounted near the Work Order and Utility Technicians (UT) offices"
+    ],
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B136 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B136A",
+    "name": "NSF OIG (Office of Inspector General) Office",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B136B",
+    "name": "FAC Fire Systems ",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B136C",
+    "name": "FEMC Foreman",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B137",
+    "name": "NSF Dorm",
+    "photo": "137.jpg",
+    "description": "Single-story building used as housing for NSF/OPP employees. Includes 5 one-person rooms, a lounge/kitchen, a laundry room, two restrooms and a furnace room.",
+    "construction": "1964",
+    "occupancy": "6",
+    "info_sheet": "B137 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B138",
+    "name": "Field Safety Training Ops Building",
+    "photo": "138.jpg",
+    "description": "Originally constructed as an earth sciences and glaciology laboratory, for which it was used until 1992. Converted in 1995 for use a field training safety office and classroom. Partitioned into eight offices and storage rooms and a furnace room. Building 139 was constructed as an addition to the building in 1965, and houses two walk-in freezers used for the storage of ice cores and other scientific samples. There    is also a small attic space used for storage.",
+    "construction": "1964",
+    "occupancy": "13",
+    "info_sheet": "B138 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B139",
+    "name": "Field Safety Training Ops Building",
+    "photo": "138.jpg",
+    "description": "Originally constructed as an earth sciences and glaciology laboratory, for which it was used until 1992. Converted in 1995 for use a field training safety office and classroom. Partitioned into eight offices and storage rooms and a furnace room. Building 139 was constructed as an addition to the building in 1965, and houses two walk-in freezers used for the storage of ice cores and other scientific samples. There    is also a small attic space used for storage.",
+    "construction": "1964",
+    "occupancy": "13",
+    "info_sheet": "B139 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B140",
+    "name": "MCC - Post Office - Central Supply",
+    "photo": "140.jpg",
+    "description": "Movement Control Center (MCC), logistics offices and warehousing for Central Supply. Building 140 consists of an existing two-story warehouse remodeled for office, warehouse and assembly use, with high-bay warehouse addition. The building serves as a logistics office, office supply warehouse, aircraft passenger processing center, and special cargo handling facility.    The cargo handlding facility is has a precast concrete slab floor.",
+    "construction": "1965; remodeled in 1994",
+    "occupancy": "94",
+    "aeds": [
+      "In the Lobby"
+    ],
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B140 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B141",
+    "name": "Fuel Department",
+    "photo": "141.jpg",
+    "description": "Two-story warehouse-type building used primarily as office, shop and storage space for the fuels work center. The first floor includes offices, a shop, and a large open storage area.  The open second floor is used for the storage of electrical inventory.",
+    "construction": "1965",
+    "occupancy": "19",
+    "muster_points": [
+      "First Floor - Building 175",
+      "Second Floor - Building 143"
+    ],
+    "info_sheet": "B141 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B142",
+    "name": "Medical Clinic",
+    "photo": "142-a.jpg",
+    "description": "Single story building used as a level 3 trauma medical facility. The building is equipped with a dedicated emergency generator.",
+    "construction": "1961",
+    "occupancy": "59",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B142 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B143",
+    "name": "Vehicle Maintenance Facility (VMF)",
+    "photo": "143.jpg",
+    "description": "Single-story facility used for the maintenance and repair of all vehicles. A high-bay area includes nine repair bays, a welding bay, battery storage room and oil dispensing room.  A low-bay area includes offices, a lounge, machine shop, engine repair shop, parts storage, tool storage, restrooms and a boiler room.",
+    "construction": "1987",
+    "occupancy": "163",
+    "aeds": [
+      "Mounted on wall between Tool Room and Parts Room."
+    ],
+    "muster_points": [
+      "Building 175"
+    ],
+    "info_sheet": "B143 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B144",
+    "name": "Dive Shack",
+    "photo": "144.jpg",
+    "description": "Single-story building used as a dive locker. Includes areas for equipment storage, cleaning and maintenance, toilet facilities, and a breathing air compressor.",
+    "construction": "1989",
+    "occupancy": "7",
+    "muster_points": [
+      "Building 159"
+    ],
+    "info_sheet": "B144 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B146",
+    "name": "Thiele Gravity Survey Hut",
+    "photo": "146.jpg",
+    "description": "Previously housed a 20 hp pump used to transfer water from the new water plant (Building 198) to tanks in Building 126, the old water plant. The equipment was removed during the 98-99 summer season.",
+    "construction": "1986",
+    "occupancy": "1",
+    "info_sheet": "B146 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B147",
+    "name": "Greenhouse (Hydroponics Lab)",
+    "photo": "147.jpg",
+    "description": "Single-story building assembled in 1988-89 out of discarded Williams Field portable buildings. Used as a hydroponics greenhouse.",
+    "construction": "1988-1989",
+    "occupancy": "4",
+    "info_sheet": "B147 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B150",
+    "name": "Pass Pump House",
+    "photo": "150.jpg",
+    "description": "Single-story building used to house two 50-hp pumps used to transfer fuel to Williams Field.  The building is divided into a pump    room and a control room.",
+    "construction": "1989",
+    "occupancy": "1",
+    "muster_points": [
+      "Building 141"
+    ],
+    "info_sheet": "B150 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B151",
+    "name": "Fire Pump House (Dorms)",
+    "photo": "151.jpg",
+    "description": "Single-story building used as a pump house for the automatic fire sprinkler systems in Dormitories 201, 202, and 206 through 211.  Includes a 10,000 gallon water storage tank and a 750 gpm, diesel-powered fire pump.",
+    "construction": "1990",
+    "occupancy": "2",
+    "muster_points": [
+      "Building 196"
+    ],
+    "info_sheet": "B151 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B155",
+    "name": "Building 155: Station Core Facility",
+    "photo": "155.jpg",
+    "description": "Two-story building divided into a single-story \"subsistence\" area and a two-story dormitory area. The subsistence area houses the station dining facility, laundry, NSFA photo labs, and boiler room. The dormitory area includes dormitory rooms housing up to six persons each, television and radio studios, a store, a barber shop, and offices.",
+    "construction": "1969",
+    "occupancy": "1,372",
+    "aeds": [
+      "Weight Room",
+      "Highway One, across from Barber Shop",
+      "Galley, mounted in kitchen area near doors exiting to hot food line"
+    ],
+    "muster_points": [
+      "Galley/Dining - B076 (B107 in Winter)",
+      "Kitchen - Building 140",
+      "Boiler Room - Building 140",
+      "Store - Building 209, Lounges",
+      "Finance - Building 209, Lounges",
+      "Kiosk - Building 209, Lounges",
+      "Housing - Building 209, Lounges",
+      "Human Resources - Building 209, Lounges",
+      "AFRTS Radio - B076 (B107 in Winter)",
+      "Weight Room - Building 140",
+      "Laundry - Building 140",
+      "Gear Issue - Building 209, Lounges",
+      "Hwy 1 North Exit - Building 209, Lounges",
+      "DJ Exit - B076 (B107 in Winter)",
+      "Gallaghers Exit - B076 (B107 in Winter)"
+    ],
+    "info_sheet": "B155 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B156",
+    "name": "Supply Warehouse",
+    "photo": "156.jpg",
+    "description": "Two-story, prefabricated, metal building. The interior partitions are wood frame with some gypsum board and plywood paneling. The building is used as a warehouse for VXE-6 aircraft parts, weather balloon equipment, and general materials. The second floor is used for DNF grantee staging and storage.",
+    "construction": "1969",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 159"
+    ],
+    "info_sheet": "B156 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B157",
+    "name": "Supply - Cold Storage",
+    "photo": "157.jpg",
+    "description": "Building is a two-story, prefabricated, steel structure with uninsulated metal siding. The building is used as a warehouse for aircraft    parts and materials.",
+    "construction": "1969",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 159"
+    ],
+    "info_sheet": "B157 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B159",
+    "name": "FP Communications, NPP, AGE",
+    "photo": "159.jpg",
+    "description": "Two-story, metal prefabricated structure.  Interior is wood framed with gypsum board and plywood paneling. The upper floor is office as well as part of the lower floor. There is a repair shop on the first floor.",
+    "construction": "1970",
+    "occupancy": "92",
+    "muster_points": [
+      "Building 001"
+    ],
+    "info_sheet": "B159 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B160",
+    "name": "Berg Field Center",
+    "photo": "160.jpg",
+    "description": "Two-story building used for the storage, maintenance, and repair of science field camp equipment such as tents, stoves, and sleds. The first    floor contains storage rooms, a restroom, and a storage room for survival bags and other helicopter support items. The second floor includes    additional warehouse space, a kitchen and lounge, and an office.",
+    "construction": "1968",
+    "occupancy": "49",
+    "muster_points": [
+      "Building 004 SSC"
+    ],
+    "info_sheet": "B160 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B161",
+    "name": "Carpentry Shop",
+    "photo": "161.jpg",
+    "description": "Single-room building used in conjunction with Building 191/191A as a carpentry shop.",
+    "construction": "1977",
+    "occupancy": "1",
+    "info_sheet": "B161 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B162",
+    "name": "BFC Freezer (Walk-In)",
+    "photo": "162.jpg",
+    "description": "Single-story walk-in freezer used as a food locker for the BFC food room located in Building 73.",
+    "construction": "Pre-1970",
+    "occupancy": "1",
+    "info_sheet": "B162 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B164",
+    "name": "Frozen Food Storage",
+    "photo": "164.jpg",
+    "description": "Single-story, prefabricated, metal structure. The building has no interior partitions. The building functions as a frozen food storage warehouse with six air conditioning units. One heated office is located on the dock. It also provides warm storage for the electric forklift.",
+    "construction": "1968",
+    "occupancy": "10",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B164 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B165",
+    "name": "Administration, Central Comms, SFA, NPP",
+    "photo": "165.jpg",
+    "description": "Communnications and Central Comms Offices. Two-story, steel frame structure with insulated metal panels.  Interior partitions are a combination of wood and steel framing with wood paneling and/or gypsum board. The building functions as the NSFA main administration offices.",
+    "construction": "1971",
+    "occupancy": "94",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B165 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B166",
+    "name": "NSF Dorm (Hotel California)",
+    "photo": "166.jpg",
+    "description": "Two-story dormitory used primarily to house NSF grantees and personnel travelling through McMurdo Station to other locations. The first floor includes 13 two-person rooms, a laundry room, a women's bathroom, a sauna, and a mechanical room. The second floor includes 8 two-person rooms, a bunkroom, a lounge, and men's bathroom. Originally constructed in 1968, the building interior was completely rehabilitated in 1986.",
+    "construction": "1968",
+    "occupancy": "91",
+    "muster_points": [
+      "Building 004 SSC"
+    ],
+    "info_sheet": "B166 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B167",
+    "name": "Chalet (NSF Offices)",
+    "photo": "167.jpg",
+    "description": "A-frame style building containing offices for senior NSF and contractor personnel. The building containsfive offices, a storage room, a restroom, a mechanical room, and a central assembly room with a conference mezzanine area above.",
+    "construction": "1969",
+    "occupancy": "61",
+    "muster_points": [
+      "Building 004 SSC"
+    ],
+    "info_sheet": "B167 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B168",
+    "name": "Auto Storage",
+    "photo": "168.jpg",
+    "description": "Two-story warehouse used for the unheated storage of automotive parts.",
+    "construction": "1969",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B168 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B170",
+    "name": "Hazardous Waste Facility",
+    "photo": "170.jpg",
+    "description": "This facility was constructed in the 97-98 summer season. It is used for waste sorting, office space for hazardous waste personnel, and radioactive material handling. The main portion of the building was built using the steel from the old pumphouse that was located at Hut Point. The building is located in the hazardous waste yard.",
+    "construction": "1997-1998",
+    "aeds": [
+      "Haz Waste, mounted next to the door to the Rad space"
+    ],
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B170 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B174",
+    "name": "Flammable Storage",
+    "photo": "174.jpg",
+    "description": "Building is used as a warehouse for the storage of safety equipment and various flammable materials, including flammable and combustible liquids.",
+    "construction": "1970",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B174 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B175",
+    "name": "FEMC - IT - NSF Offices",
+    "photo": "175.jpg",
+    "description": "Two-story building used for NSF administrative offices, contractor's engineering division offices, and computer training.",
+    "construction": "1971",
+    "occupancy": "84",
+    "muster_points": [
+      "Building 140"
+    ],
+    "info_sheet": "B175 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B176",
+    "name": "Dry Foods Storage",
+    "photo": "176.jpg",
+    "description": "This building is used for the storage of dry food items not requiring heat.",
+    "construction": "1970",
+    "occupancy": "15",
+    "muster_points": [
+      "Building 155"
+    ],
+    "info_sheet": "B176 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B177",
+    "name": "Paint Barn - Storage",
+    "photo": "177.jpg",
+    "description": "Used for small-quantity paint storage and painting work. Serves as Facilities Maintenance and Construction painting work center. Building is a single-room T-5 with a smaller shed-roof T-5 attached.",
+    "construction": "1970",
+    "occupancy": "7",
+    "muster_points": [
+      "Building 191"
+    ],
+    "info_sheet": "B177 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B179",
+    "name": "Seawater Intake",
+    "photo": "179.jpg",
+    "description": "Single-story, single-room building used as a shelter over a seawater intake well.  The building is located at the end of a man-made earthen jetty extending approximately 150 feet into McMurdo Sound from the shoreline. The building also houses two submersible seawater pumps for the Building 001, Phase III, aquarium and two pumps for the Building 187, the old aquarium.",
+    "construction": "1993",
+    "occupancy": "1",
+    "muster_points": [
+      "Building 196"
+    ],
+    "info_sheet": "B179 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B181",
+    "name": "Sewage Masticator",
+    "photo": "181.jpg",
+    "description": "Single-story building used to house two 12-inch sewage masticators. Occasionally serves as a temporary dive locker.",
+    "construction": "1989",
+    "occupancy": "2",
+    "info_sheet": "B181 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B182",
+    "name": "Firehouse - Telephone Exchange",
+    "photo": "182.jpg",
+    "description": "The building functions as the firehouse with the telephone exchange and berthing located on the upper floor.",
+    "construction": "1972",
+    "occupancy": "32",
+    "aeds": [
+      "1EA on Engine 1 vehicle",
+      "(during winter, 1EA also on ambulance)"
+    ],
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B182 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B183",
+    "name": "Incinerator - Food Storage",
+    "photo": "183.jpg",
+    "description": "Split-level building originally constructed to house an incinerator. It is used a as a fabrication shop and for food storage. The incinerator was dismantled and shipped back to the Continental United States in 1996-97.",
+    "construction": "1972",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B183 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B185",
+    "name": "Waste Management",
+    "photo": "185.jpg",
+    "description": "Single-story arch building used as a waste management sorting and processing facility.",
+    "construction": "1973",
+    "occupancy": "15",
+    "aeds": [
+      "Solid Waste, mounted near garage doors by the paint storage"
+    ],
+    "muster_points": [
+      "Building 143"
+    ],
+    "info_sheet": "B185 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B187",
+    "name": "Old Aquarium",
+    "photo": "187.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B188",
+    "name": "NSF Dorm - Mammoth Mountain Inn (MMI)",
+    "photo": "188.jpg",
+    "description": "Two-story dormitory used primarily to house transient personnel. The first floor contains 9 two-person rooms, a restroom, a lounge, a laundry room and a mechanical room. The second floor contains 12 two-person rooms and a restroom.",
+    "construction": "1976",
+    "occupancy": "49",
+    "muster_points": [
+      "Building 004 SSC"
+    ],
+    "info_sheet": "B188 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B189",
+    "name": "Joint Spacecraft Operations Center (JSOC) - NOC",
+    "photo": "189.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B191",
+    "name": "Logistics, Materials, Mapcon - Carpentry Workshop",
+    "photo": "191.jpg",
+    "description": "FMC Carpentry Work Center and Tool Room (the Foldaway). Two-story building used as a woodworking shop with offices on the first floor.  A storage area on the second floor is used as a tool storage and issue room.",
+    "construction": "1977-1978",
+    "occupancy": "54",
+    "aeds": [
+      "191A, In the office on the small side of the shop"
+    ],
+    "muster_points": [
+      "Building 004 SSC"
+    ],
+    "info_sheet": "B191 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B191B",
+    "name": "Carpentry Workshop - Supply",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 004 SSC"
+    ]
+  },
+  {
+    "id": "B191C",
+    "name": "Carpentry Workshop",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 004 SSC"
+    ]
+  },
+  {
+    "id": "B191T",
+    "name": "The Flushaway (South of 191A)",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 004 SSC"
+    ]
+  },
+  {
+    "id": "B192",
+    "name": "Environmental Health and Saftey",
+    "photo": "192.jpg",
+    "description": "Single-story building used as office space for the contractor's environmental, safety, QA, and waste handling personnel. Includes four office spaces, a furnace room and a storage room used for the off-season storage of runway lighting.",
+    "construction": "1977",
+    "occupancy": "14",
+    "muster_points": [
+      "Building 175"
+    ],
+    "info_sheet": "B192 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B193",
+    "name": "USAP Cargo Office",
+    "photo": "193.jpg",
+    "description": "Single-story, wood frame structure with wood framed walls. It has three offices and functions as the USAP Cargo office.",
+    "construction": "1979",
+    "occupancy": "3",
+    "info_sheet": "B193 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B194",
+    "name": "Pump House (Water Plant)",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B195",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B196",
+    "name": "Power Plant",
+    "photo": "196.jpg",
+    "description": "Single-story, building which houses the central power plant for the station. Includes six 800-900kW diesel-engine generators in a high-bay generator room, a control room, offices, and a parts storage mezzanine.",
+    "construction": "1981",
+    "occupancy": "19",
+    "aeds": [
+      "1EA in Generator Section"
+    ],
+    "muster_points": [
+      "Building 199"
+    ],
+    "info_sheet": "B196 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B197",
+    "name": "Arrival Heights Lab",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 004"
+    ]
+  },
+  {
+    "id": "B198",
+    "name": "Water Plant",
+    "photo": "198.jpg",
+    "description": "Functions as the primary water desalination plant and fresh water holding facility. Contains three 40,000 gallon per day reverse osmosis processors, three 50,000 gallon fresh water storage tanks, and one 18,000 gallon seawater surge tank. The liquid nitrogen plant is also located in Building 198.",
+    "construction": "1984-1987",
+    "occupancy": "24",
+    "aeds": [
+      "Western wall of generator room, adjacent to the CO2 suppression cylinders"
+    ],
+    "muster_points": [
+      "Building 199"
+    ],
+    "info_sheet": "B198 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B199",
+    "name": "Waste Water Treatment Plant",
+    "photo": "wwtp.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 196"
+    ]
+  },
+  {
+    "id": "B200",
+    "name": "Lift Station (WWTP)",
+    "photo": "200.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B201",
+    "name": "Dormitory",
+    "photo": "201.jpg",
+    "description": "Two-story personnel dormitory housing up to 54 persons. The first floor inlcudes 11 two-person rooms, an entry foyer, a mechanical room, two storage rooms, two communal bathrooms, and a lounge. The second floor includes 16 two-person rooms, two bathrooms, and a laundry room.",
+    "construction": "1979",
+    "occupancy": "98",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B201 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B202",
+    "name": "Dormitory",
+    "photo": "202.jpg",
+    "description": "Two-story personnel dormitory housing up to 54 persons. The first floor includes 11 two-person rooms, an entry foyer, a mechanical room, two storage rooms, two communal bathrooms, and a lounge. The second floor includes 16 two-person rooms, two bathrooms, and a laundry room.",
+    "construction": "1980",
+    "occupancy": "98",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B202 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B203A",
+    "name": "Dormitory",
+    "photo": "203.jpg",
+    "description": "Two-story personnel dormitory housing up to 54 persons. The first floor inlcudes 11 two-person rooms, an entry foyer, a mechanical room, two storage rooms, two communal bathrooms, and a lounge. The second floor includes 16 two-person rooms, two bathrooms, and a laundry room.",
+    "construction": "1980",
+    "occupancy": "98"
+  },
+  {
+    "id": "B203B",
+    "name": "Dormitory",
+    "photo": "203.jpg",
+    "description": "Two-story personnel dormitory housing up to 54 persons. The first floor inlcudes 11 two-person rooms, an entry foyer, a mechanical room, two storage rooms, two communal bathrooms, and a lounge. The second floor includes 16 two-person rooms, two bathrooms, and a laundry room.",
+    "construction": "1980",
+    "occupancy": "98"
+  },
+  {
+    "id": "B203C",
+    "name": "Dormitory",
+    "photo": "203.jpg",
+    "description": "Two-story personnel dormitory housing up to 54 persons. The first floor inlcudes 11 two-person rooms, an entry foyer, a mechanical room, two storage rooms, two communal bathrooms, and a lounge. The second floor includes 16 two-person rooms, two bathrooms, and a laundry room.",
+    "construction": "1980",
+    "occupancy": "98"
+  },
+  {
+    "id": "B206",
+    "name": "Dormitory",
+    "photo": "206.jpg",
+    "description": "Three-story personnel dormitory housing up to 130 persons. The first floor includes 17 two-person rooms, a lounge, a public restroom, and a sauna. The second and third floors each include 24 two-person rooms and a lounge. Each bedroom contains a sink. A toilet with shower and toilet is located between each room. The FY99 winter-over construction schedule includes plans to remodel the third floor lounge, turning it into 2 two-person bedrooms.",
+    "construction": "1986-1987",
+    "occupancy": "381",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B206 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B207",
+    "name": "Dormitory",
+    "photo": "207.jpg",
+    "description": "Three-story personnel dormitory housing up to 134 persons. The first floor includes 17 two-person rooms, a lounge, a public restroom, and a sauna. The second floor includes 24 two-person rooms and a small lounge. The third floor includes 26 two-person rooms.",
+    "construction": "1986-1987",
+    "occupancy": "381",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B207 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B208",
+    "name": "Dormitory",
+    "photo": "208.jpg",
+    "description": "Three-story personnel dormitory housing up to 134 persons. The first floor includes 17 two-person rooms, as well as a library, lounge, public restroom, and a sauna. The second floor includes 24 two-person rooms and a small lounge. The third floor includes 26 two-person rooms.",
+    "construction": "1988-1989",
+    "occupancy": "381",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B208 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B209",
+    "name": "Dormitory",
+    "photo": "209.jpg",
+    "description": "Three-story personnel dormitory housing up to 134 persons. The first floor includes 17 two-person rooms, a lounge, a public restroom, and a sauna. The second floor includes 24 two-person rooms and a small lounge. The third floor includes 26 two-person rooms.",
+    "construction": "1988-1989",
+    "occupancy": "381",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B209 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B210",
+    "name": "Dormitory",
+    "photo": "210.jpg",
+    "description": "Two-story dormitory building housing up to 68 persons, constructed in McMurdo in 1994 to replace housing facilities at Williams Field III. First floor includes 14 two-person rooms, a communal bathroom, mechanical and electrical rooms, a lounge, a laundry, and a storage room. The second floor includes 20 two-person rooms, a communal bathroom, a storage room, and a mechanical room.",
+    "construction": "1994",
+    "occupancy": "238",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B210 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B211",
+    "name": "Dormitory",
+    "photo": "211.jpg",
+    "description": "Two-story dormitory building housing up to 68 persons, constructed in McMurdo in 1994 to replace housing facilities at Williams Field III.  First floor includes 16 two-person rooms, a communal bathroom, mechanical and electrical rooms, a lounge, a laundry, and a storage room. The second floor includes 22 two-person rooms, a communal bathroom, a storage room, and an electrical room.",
+    "construction": "1994",
+    "occupancy": "238",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B211 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B221",
+    "name": "New T-Site",
+    "photo": "221.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B305",
+    "name": "Dormitory",
+    "photo": "305.jpg",
+    "description": "The newest dormitory/lodging structure on station; constructed in 2025-2026 to replace the aging B203 housing facilties and to expand station capacity.",
+    "construction": "2026",
+    "muster_points": [
+      "Building 155, Galley",
+      "Building 207, 1st and 2nd Floor Lounges"
+    ]
+  },
+  {
+    "id": "B306",
+    "name": "B306 - VEOC Construction Area",
+    "photo": "no-image.png",
+    "description": "This area is currently under construction or is being prepared for future development and modernization. Please do not enter."
+  },
+  {
+    "id": "B340",
+    "name": "Unheated Storage",
+    "photo": "340.jpg",
+    "description": "Single-story unheated warehouse currently used for the storage of materials and miscellaneous goods. It has a large cargo door at one    end and personnel doors at both ends.",
+    "construction": "1982-1983",
+    "occupancy": "8",
+    "info_sheet": "B340 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B341",
+    "name": "Unheated Storage - Cold Storage Annex",
+    "photo": "341.jpg",
+    "description": "Single-story unheated warehouse currently used for the storage of piping and pipe insulation. It has a large cargo door at one end and    personnel doors at both ends.",
+    "construction": "1982-1983",
+    "occupancy": "8",
+    "info_sheet": "B341 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B342",
+    "name": "Unheated Storage",
+    "photo": "342.jpg",
+    "description": "Single-story unheated warehouse currently used for the storage of miscellaneous materials.",
+    "construction": "1982-1983",
+    "occupancy": "8",
+    "info_sheet": "B342 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B348",
+    "name": "Pumphouse",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B349",
+    "name": "MOGAS Pumphouse",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 141"
+    ]
+  },
+  {
+    "id": "B361",
+    "name": "RFI - Office Trailer",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B362",
+    "name": "RFI - Office Trailer",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B363",
+    "name": "RFI - Office Trailer",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 155, Galley"
+    ]
+  },
+  {
+    "id": "B637",
+    "name": "Materials Storage (Jamesway)",
+    "photo": "637.jpg",
+    "description": "Standard Jamesway tent, currently used as heated storage for construction materials.",
+    "construction": "1987",
+    "occupancy": "2",
+    "muster_points": [
+      "Building 155, Galley"
+    ],
+    "info_sheet": "B637 - Building Information Sheet.pdf"
+  },
+  {
+    "id": "B700",
+    "name": "Smoking Shelter",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B701",
+    "name": "Smoking Shelter",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B702",
+    "name": "Smoking Shelter",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "B800",
+    "name": "Super Dual Auroral Radar Network (SuperDARN) Antenna Array",
+    "photo": "800.jpg",
+    "description": "The Super Dual Auroral Radar Network (SuperDARN) is an international scientific radar network consisting of 35 high frequency (HF) radars located in both the Northern and Southern Hemispheres."
+  },
+  {
+    "id": "BALLOON_PAD",
+    "name": "Balloon Pad",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "BFC_FUEL_STORAGE",
+    "name": "BFC Fuel Storage",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "D02",
+    "name": "Fuel Tank (JP-5) 500M",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "D12",
+    "name": "Fuel Tank (JP-5) 2 Million Gallons",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "D13",
+    "name": "Fuel Tank (JP-5) 2 Million Gallons",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "D15",
+    "name": "Fuel Tank",
+    "photo": "D-15.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "DERELICT_JUNCTION",
+    "name": "Derelict Junction",
+    "photo": "dj.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "DISCOVERY_HUT",
+    "name": "Discovery Hut",
+    "photo": "hutpoint.jpg",
+    "description": "Located at Hut Point on Ross Island, Discovery Hut was built by Robert Falcon Scott in 1902, during the Discovery Expedition of 1901-1904. While Discovery Hut can technically be referred to as Scott's Hut, as his expedition built and used it during the 1901-1904 expedition, the title of Scott's Hut popularly belongs to the building erected in 1911 at Cape Evans by the 1910-1913 Terra Nova Expedition",
+    "construction": "1902"
+  },
+  {
+    "id": "HAZ3",
+    "name": "Hazardous Waste Storage",
+    "photo": "haz3.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "IPA",
+    "name": "ITC-Prime Addition (IPA) Construction Area",
+    "photo": "no-image.png",
+    "description": "This area is currently under construction or is being prepared for future development and modernization. Please do not enter."
+  },
+  {
+    "id": "J-8",
+    "name": "Fuel Tank (AN-8) 2 Million Gallons",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J-9",
+    "name": "Fuel Tank (AN-8) 2 Million Gallons",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J01",
+    "name": "Storage",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J05",
+    "name": "Fuel Tank (AN-8) 220M",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J06",
+    "name": "Fuel Tank (AN-8) 500M",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J07",
+    "name": "Fuel Tank (AN-8) 500M",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J08",
+    "name": "Jet Fuel Tank",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "J09",
+    "name": "Jet Fuel Tank",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "M01",
+    "name": "Fuel Tank (MOGAS) 250M",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "M03",
+    "name": "Fuel Tank (Mogas) 500M",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "M04",
+    "name": "MOGAS Tank",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "M05",
+    "name": "MOGAS Tank",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "M06",
+    "name": "MOGAS Tank",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "POWER_PLANT_STORAGE",
+    "name": "Power Plant Storage",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "POWER_STORE",
+    "name": "Power Store",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "RADOME",
+    "name": "Radome",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "SCOTT_BASE",
+    "name": "Scott Base",
+    "photo": "sct.jpg",
+    "description": "See the Scott Base page on the intranet for more information about visiting or touring Scott Base."
+  },
+  {
+    "id": "SNOOPY_POLE",
+    "name": "Snoopy Pole",
+    "photo": "snp.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "T01",
+    "name": "Redundant Tank",
+    "photo": "T-1.jpg",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "T344",
+    "name": "Storage",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 143"
+    ]
+  },
+  {
+    "id": "T345",
+    "name": "Unheated Storage",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 143"
+    ]
+  },
+  {
+    "id": "T347",
+    "name": "Storage",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item.",
+    "muster_points": [
+      "Building 143"
+    ]
+  },
+  {
+    "id": "TURBINES",
+    "name": "Wind Turbines",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-2",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-3",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-4",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-5",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-6",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-7",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-8",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  },
+  {
+    "id": "UNKNOWN-9",
+    "name": "Unidentified Location",
+    "photo": "no-image.png",
+    "description": "No description is available for this building or structure. Please submit a request to the <a href='mailto:MCMITCServiceDesk@usap.gov'>McMurdo Service Desk</a> if you have information about this map item."
+  }
+]
