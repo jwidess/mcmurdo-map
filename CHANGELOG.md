@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/jwidess/mcmurdo-map/compare/v1.2.0...v1.3.0) (2026-11-10)
+
+
+### Features
+
+* Full screen photo viewer ([f7262a0](https://github.com/jwidess/mcmurdo-map/commit/f7262a0f5a6744bb49848554b95721df022381e8))
+
 ## [1.2.0](https://github.com/jwidess/mcmurdo-map/compare/v1.1.0...v1.2.0) (2026-11-10)
 
 
