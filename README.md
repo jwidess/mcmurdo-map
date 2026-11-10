@@ -4,6 +4,8 @@ An **offline** and lightweight Android map for McMurdo Station, Antarctica.
 
 This was built primarily for first time station personnel trying to navigate town. The McMurdo intranet USAP web map is great on desktop, but doesn't work well on mobile, not to mention the lack of WiFi outside. This app brings the entire station map, facility directory, photos, and info PDFs right to your phone without needing a network connection.
 
+![Map Example](example.webp)
+
 ---
 
 ## Features
