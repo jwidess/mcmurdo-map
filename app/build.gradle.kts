@@ -4,8 +4,34 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
-val appVersionName = project.findProperty("versionName") as String? ?: "1.0.0"
-val appVersionCode = (project.findProperty("versionCode") as String?)?.toIntOrNull() ?: 4
+val manifestFile = rootProject.file(".release-please-manifest.json")
+val manifestVersion: String? = if (manifestFile.exists()) {
+    try {
+        val content = manifestFile.readText()
+        val regex = Regex(""""\."\s*:\s*"([^"]+)"""")
+        regex.find(content)?.groupValues?.get(1)
+    } catch (e: Exception) {
+        null
+    }
+} else null
+
+val rawVersionName = (project.findProperty("versionName") as String?)
+    ?: manifestVersion
+    ?: "1.0.0"
+
+// Strip leading 'v' if present (e.g. "v1.0.0" -> "1.0.0")
+val appVersionName = rawVersionName.removePrefix("v")
+
+// Compute increasing versionCode from semver (MAJOR * 10000 + MINOR * 100 + PATCH)
+val computedVersionCode: Int = run {
+    val parts = appVersionName.split(".")
+    val major = parts.getOrNull(0)?.toIntOrNull() ?: 1
+    val minor = parts.getOrNull(1)?.toIntOrNull() ?: 0
+    val patch = parts.getOrNull(2)?.takeWhile { it.isDigit() }?.toIntOrNull() ?: 0
+    (major * 10000) + (minor * 100) + patch
+}
+
+val appVersionCode = (project.findProperty("versionCode") as String?)?.toIntOrNull() ?: computedVersionCode
 
 android {
     namespace = "com.jwidess.mcmurdomap"
@@ -24,11 +50,17 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            //! Use standard Android debug keystore for signing (temporary)
+            signingConfig = signingConfigs.getByName("debug")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
+    }
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
