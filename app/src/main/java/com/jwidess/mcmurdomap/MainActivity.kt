@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import android.view.WindowManager
 import android.webkit.WebView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -22,6 +23,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -38,9 +41,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -54,6 +60,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
+import androidx.compose.ui.window.DialogWindowProvider
 import androidx.core.view.WindowCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -152,15 +161,18 @@ fun MapAppScreen(
         onMapReady()
     }
 
-    // Keep status bar and navigation bar icons dark across screen states
+    var fullScreenPhotoBuilding by remember { mutableStateOf<Building?>(null) }
+
+    // Keep status bar and navigation bar icons dark across screen states (light when in full-screen photo)
     val view = LocalView.current
     if (!view.isInEditMode) {
+        val isFullScreenPhoto = fullScreenPhotoBuilding != null
         SideEffect {
             val activityWindow = (view.context as? Activity)?.window
             if (activityWindow != null) {
                 val insets = WindowCompat.getInsetsController(activityWindow, view)
-                insets.isAppearanceLightStatusBars = true
-                insets.isAppearanceLightNavigationBars = true
+                insets.isAppearanceLightStatusBars = !isFullScreenPhoto
+                insets.isAppearanceLightNavigationBars = !isFullScreenPhoto
             }
         }
     }
@@ -214,8 +226,9 @@ fun MapAppScreen(
     }
 
     // Hardware back button behavior
-    BackHandler(enabled = isSearchExpanded || selectedBuilding != null || activeCategory != null || showHelpDialog) {
+    BackHandler(enabled = fullScreenPhotoBuilding != null || isSearchExpanded || selectedBuilding != null || activeCategory != null || showHelpDialog) {
         when {
+            fullScreenPhotoBuilding != null -> fullScreenPhotoBuilding = null
             showHelpDialog -> showHelpDialog = false
             isSearchExpanded -> {
                 isSearchExpanded = false
@@ -592,6 +605,9 @@ fun MapAppScreen(
                         building = building,
                         onOpenPdf = { pdfName ->
                             PdfHelper.openBuildingPdf(context, pdfName)
+                        },
+                        onPhotoClick = { bldg ->
+                            fullScreenPhotoBuilding = bldg
                         }
                     )
                 }
@@ -956,13 +972,22 @@ fun MapAppScreen(
                 )
             }
         }
+
+        // 5. Full Screen Photo Viewer (Dialog rendered on top of ModalBottomSheet)
+        if (fullScreenPhotoBuilding != null) {
+            FullScreenPhotoViewer(
+                building = fullScreenPhotoBuilding!!,
+                onDismiss = { fullScreenPhotoBuilding = null }
+            )
+        }
     }
 }
 
 @Composable
 fun BuildingDetailContent(
     building: Building,
-    onOpenPdf: (String) -> Unit
+    onOpenPdf: (String) -> Unit,
+    onPhotoClick: (Building) -> Unit = {}
 ) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
@@ -993,16 +1018,43 @@ fun BuildingDetailContent(
                 }
 
                 if (photoBitmap != null) {
-                    Image(
-                        bitmap = photoBitmap.asImageBitmap(),
-                        contentDescription = building.displayName,
+                    Box(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(200.dp)
                             .clip(RoundedCornerShape(8.dp))
-                            .border(1.dp, Color(0xFF8A8980), RoundedCornerShape(8.dp)),
-                        contentScale = ContentScale.Crop
-                    )
+                            .border(1.dp, Color(0xFF8A8980), RoundedCornerShape(8.dp))
+                            .clickable { onPhotoClick(building) }
+                    ) {
+                        Image(
+                            bitmap = photoBitmap.asImageBitmap(),
+                            contentDescription = building.displayName,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
+                        )
+
+                        // Fullscreen button in bottom right
+                        Surface(
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .padding(8.dp),
+                            shape = RoundedCornerShape(6.dp),
+                            color = Color.Black.copy(alpha = 0.65f),
+                            contentColor = Color.White
+                        ) {
+                            Box(
+                                modifier = Modifier.padding(6.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Fullscreen,
+                                    contentDescription = "View full image",
+                                    modifier = Modifier.size(18.dp),
+                                    tint = Color.White
+                                )
+                            }
+                        }
+                    }
                     Spacer(modifier = Modifier.height(14.dp))
                 }
             }
@@ -1277,4 +1329,176 @@ fun MapWebView(
         },
         modifier = Modifier.fillMaxSize()
     )
+}
+
+@Composable
+fun FullScreenPhotoViewer(
+    building: Building,
+    onDismiss: () -> Unit
+) {
+    val context = LocalContext.current
+    val photoBitmap = remember(building.photo) {
+        try {
+            val photoFile = building.photo?.trim() ?: ""
+            val assetPath = if (photoFile.contains("/")) photoFile else "assets/img/buildings/$photoFile"
+            val stream = try {
+                context.assets.open(assetPath)
+            } catch (e: Exception) {
+                context.assets.open("assets/img/$photoFile")
+            }
+            stream.use { BitmapFactory.decodeStream(it) }
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(
+            usePlatformDefaultWidth = false,
+            decorFitsSystemWindows = false
+        )
+    ) {
+        val view = LocalView.current
+        SideEffect {
+            val dialogWindow = (view.parent as? DialogWindowProvider)?.window
+            dialogWindow?.let { win ->
+                win.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                win.setBackgroundDrawableResource(android.R.color.black)
+                win.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+                win.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                win.statusBarColor = android.graphics.Color.BLACK
+                win.navigationBarColor = android.graphics.Color.BLACK
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    win.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                }
+                val insets = WindowCompat.getInsetsController(win, view)
+                insets.isAppearanceLightStatusBars = false
+                insets.isAppearanceLightNavigationBars = false
+            }
+        }
+
+        var scale by remember { mutableFloatStateOf(1f) }
+        var offsetX by remember { mutableFloatStateOf(0f) }
+        var offsetY by remember { mutableFloatStateOf(0f) }
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black)
+        ) {
+            // Main Zoomable Photo
+            if (photoBitmap != null) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clipToBounds()
+                        .pointerInput(Unit) {
+                            detectTapGestures(
+                                onDoubleTap = {
+                                    if (scale > 1.2f) {
+                                        scale = 1f
+                                        offsetX = 0f
+                                        offsetY = 0f
+                                    } else {
+                                        scale = 2.5f
+                                    }
+                                }
+                            )
+                        }
+                        .pointerInput(Unit) {
+                            detectTransformGestures { _, pan, zoom, _ ->
+                                scale = (scale * zoom).coerceIn(1f, 5f)
+                                if (scale <= 1.05f) {
+                                    scale = 1f
+                                    offsetX = 0f
+                                    offsetY = 0f
+                                } else {
+                                    offsetX += pan.x
+                                    offsetY += pan.y
+                                }
+                            }
+                        },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        bitmap = photoBitmap.asImageBitmap(),
+                        contentDescription = building.displayName,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp)
+                            .graphicsLayer {
+                                scaleX = scale
+                                scaleY = scale
+                                translationX = offsetX
+                                translationY = offsetY
+                            },
+                        contentScale = ContentScale.Fit
+                    )
+                }
+            } else {
+                Text(
+                    text = "No photo available",
+                    color = Color.White,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+
+            // Top Header Bar
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.TopCenter),
+                color = Color.Black.copy(alpha = 0.75f)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .statusBarsPadding()
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Row(
+                        modifier = Modifier.weight(1f),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Surface(
+                            color = Color(0xFF162E51),
+                            shape = RoundedCornerShape(4.dp)
+                        ) {
+                            Text(
+                                text = building.id,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+                        Text(
+                            text = building.displayName,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.White,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+
+                    IconButton(
+                        onClick = onDismiss,
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "Close full image",
+                            tint = Color.White,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
 }
