@@ -1673,7 +1673,7 @@
       let currentVB = { x: 0, y: 0, w: 1000, h: 1000 };
       let targetVB = { x: 0, y: 0, w: 1000, h: 1000 };
 
-      const MIN_WIDTH = 180;
+      const MIN_WIDTH = 60;
       const MAX_WIDTH = NATIVE_SVG_W * 1.6;
       const TAP_SLOP_PX = 18;
 
@@ -2112,6 +2112,34 @@
           }
         }
 
+        // Hitbox tolerance for small buildings: if exact pixel missed, search a radius around the point
+        if (!selectedId) {
+          const radii = [6, 12];
+          const angles = [0, 45, 90, 135, 180, 225, 270, 315];
+          let bestDist = Infinity;
+
+          for (const r of radii) {
+            for (const deg of angles) {
+              const rad = (deg * Math.PI) / 180;
+              const testX = clientX + r * Math.cos(rad);
+              const testY = clientY + r * Math.sin(rad);
+              const nearbyElements = document.elementsFromPoint(testX, testY);
+              for (const el of nearbyElements) {
+                const bldgId = getBuildingIdFromElement(el);
+                if (bldgId) {
+                  if (r < bestDist) {
+                    bestDist = r;
+                    selectedId = bldgId;
+                  }
+                  break;
+                }
+              }
+              if (selectedId && bestDist <= 6) break;
+            }
+            if (selectedId) break;
+          }
+        }
+
         if (selectedId) {
           selectBuilding(selectedId, true);
           focusBuildingInTopRegion(selectedId);
@@ -2178,11 +2206,10 @@
           const centerY = bbox.y + bbox.height / 2;
 
           const aspect = getScreenAspect();
-          // Keep a comfortable zoom: if current zoom is within [220, 360], maintain it;
-          // otherwise clamp to 340 so building details and context are clear.
+          // Keep current zoom if comfortable; otherwise clamp to 340 so building details and context are clear.
           let targetW = targetVB.w;
           if (targetW > 360) targetW = 340;
-          if (targetW < 200) targetW = 200;
+          if (targetW < MIN_WIDTH) targetW = MIN_WIDTH;
           targetW = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, targetW));
           const targetH = targetW / aspect;
 
