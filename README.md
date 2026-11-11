@@ -46,17 +46,40 @@ adb install -r McMurdoStationMap-slim.apk
 
 ## Build from Source
 
-This project uses Gradle with Kotlin and Jetpack Compose Material 3:
+This project uses Gradle with Kotlin and Jetpack Compose Material 3. There are two app versions, `full` and `slim`:
 
+### Build Both Versions
 ```powershell
 # Windows
 .\gradlew.bat assembleDebug --offline
-
-# macOS / Linux
-./gradlew assembleDebug --offline
 ```
 
-The output APK can be found at: `app/build/outputs/apk/debug/app-debug.apk`.
+This compiles both versions under `app/build/outputs/apk/`:
+- **Full Debug**: `app/build/outputs/apk/full/debug/app-full-debug.apk`
+- **Slim Debug**: `app/build/outputs/apk/slim/debug/app-slim-debug.apk`
+
+---
+
+### Build a Specific Version
+
+```powershell
+# Build Full only (Debug or Release)
+.\gradlew.bat assembleFullDebug --offline
+.\gradlew.bat assembleFullRelease --offline
+
+# Build Slim only (Debug or Release)
+.\gradlew.bat assembleSlimDebug --offline
+.\gradlew.bat assembleSlimRelease --offline
+```
+
+### Installing via ADB
+```bash
+# Flash Full Debug
+adb install -r app/build/outputs/apk/full/debug/app-full-debug.apk
+
+# Or Flash Slim Debug
+adb install -r app/build/outputs/apk/slim/debug/app-slim-debug.apk
+```
 
 ---
 
