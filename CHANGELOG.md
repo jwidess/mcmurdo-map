@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/jwidess/mcmurdo-map/compare/v1.3.0...v1.4.0) (2026-11-11)
+
+
+### Features
+
+* Slim apk variant without building info PDFs ([f3f4d85](https://github.com/jwidess/mcmurdo-map/commit/f3f4d850011f2d6aaedabf1382714e3f90fde5b2))
+
 ## [1.3.0](https://github.com/jwidess/mcmurdo-map/compare/v1.2.0...v1.3.0) (2026-11-10)
 
 
