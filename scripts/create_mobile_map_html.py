@@ -359,7 +359,7 @@ html_template = """<!DOCTYPE html>
     .touch-controls {
       position: absolute;
       right: 16px;
-      bottom: 24px;
+      bottom: 12px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -425,6 +425,10 @@ html_template = """<!DOCTYPE html>
     }
 
     @media (orientation: landscape) {
+      .touch-controls {
+        bottom: 10px;
+        right: 14px;
+      }
       .compass-overlay {
         width: 86px;
         height: 86px;
@@ -479,12 +483,6 @@ html_template = """<!DOCTYPE html>
     <!-- Reset View (Reload icon) -->
     <button class="touch-btn" id="btn-reset" title="Reset View">
       <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-    </button>
-    <!-- Item 1: Standard Question Mark Icon for Help button -->
-    <button class="touch-btn" id="btn-help" title="About / Station Info">
-      <svg viewBox="0 0 24 24">
-        <text x="12" y="17.5" font-size="18" font-family="-apple-system, BlinkMacSystemFont, Roboto, sans-serif" font-weight="bold" text-anchor="middle" fill="currentColor">?</text>
-      </svg>
     </button>
   </div>
 
@@ -1142,11 +1140,6 @@ html_template = """<!DOCTYPE html>
       bindButton('btn-zoom-in', window.zoomIn);
       bindButton('btn-zoom-out', window.zoomOut);
       bindButton('btn-reset', window.resetView);
-      bindButton('btn-help', () => {
-        if (window.AndroidBridge && window.AndroidBridge.onHelpRequested) {
-          window.AndroidBridge.onHelpRequested();
-        }
-      });
 
       window.addEventListener('resize', () => {
         const aspect = getScreenAspect();

@@ -30,6 +30,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -275,7 +276,7 @@ fun MapAppScreen(
                     .align(Alignment.TopStart)
                     .statusBarsPadding()
                     .padding(start = 12.dp, top = 6.dp, bottom = 12.dp)
-                    .width(280.dp)
+                    .width(360.dp)
                     .fillMaxHeight()
             } else {
                 Modifier
@@ -285,8 +286,8 @@ fun MapAppScreen(
                     .padding(top = 6.dp)
             }
         ) {
-            // Search Bar
-            Surface(
+            // Search Bar & Help Button Row
+            Row(
                 modifier = if (isLandscape) {
                     Modifier
                         .fillMaxWidth()
@@ -297,66 +298,97 @@ fun MapAppScreen(
                         .padding(horizontal = 12.dp)
                         .height(46.dp)
                 },
-                shape = RoundedCornerShape(23.dp),
-                color = Color.White.copy(alpha = 0.98f),
-                border = BorderStroke(1.5.dp, Color(0xFF162E51).copy(alpha = 0.25f)),
-                shadowElevation = 6.dp
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Row(
+                // Search Bar
+                Surface(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 14.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                        .weight(1f)
+                        .fillMaxHeight(),
+                    shape = RoundedCornerShape(23.dp),
+                    color = Color.White.copy(alpha = 0.98f),
+                    border = BorderStroke(1.5.dp, Color(0xFF162E51).copy(alpha = 0.25f)),
+                    shadowElevation = 6.dp
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Search,
-                        contentDescription = "Search",
-                        tint = Color(0xFF162E51),
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    BasicTextField(
-                        value = searchQuery,
-                        onValueChange = {
-                            searchQuery = it
-                            isSearchExpanded = it.isNotBlank()
-                        },
-                        singleLine = true,
-                        cursorBrush = SolidColor(Color(0xFF0085CA)),
-                        textStyle = TextStyle(
-                            color = Color(0xFF171716),
-                            fontSize = 13.5.sp
-                        ),
-                        modifier = Modifier.weight(1f),
-                        decorationBox = { innerTextField ->
-                            Box(contentAlignment = Alignment.CenterStart) {
-                                if (searchQuery.isEmpty()) {
-                                    Text(
-                                        text = "Search (e.g. 155, Galley, Crary)...",
-                                        fontSize = 13.5.sp,
-                                        color = Color(0xFF757575)
-                                    )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "Search",
+                            tint = Color(0xFF162E51),
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        BasicTextField(
+                            value = searchQuery,
+                            onValueChange = {
+                                searchQuery = it
+                                isSearchExpanded = it.isNotBlank()
+                            },
+                            singleLine = true,
+                            cursorBrush = SolidColor(Color(0xFF0085CA)),
+                            textStyle = TextStyle(
+                                color = Color(0xFF171716),
+                                fontSize = 13.5.sp
+                            ),
+                            modifier = Modifier.weight(1f),
+                            decorationBox = { innerTextField ->
+                                Box(contentAlignment = Alignment.CenterStart) {
+                                    if (searchQuery.isEmpty()) {
+                                        Text(
+                                            text = "Search (e.g. 155, Galley, Crary)...",
+                                            fontSize = 13.5.sp,
+                                            color = Color(0xFF757575)
+                                        )
+                                    }
+                                    innerTextField()
                                 }
-                                innerTextField()
+                            }
+                        )
+                        if (searchQuery.isNotEmpty()) {
+                            IconButton(
+                                onClick = {
+                                    searchQuery = ""
+                                    isSearchExpanded = false
+                                    focusManager.clearFocus()
+                                },
+                                modifier = Modifier.size(24.dp)
+                            ) {
+                                Icon(
+                                    Icons.Default.Close,
+                                    contentDescription = "Clear",
+                                    tint = Color(0xFF5D5D52),
+                                    modifier = Modifier.size(16.dp)
+                                )
                             }
                         }
-                    )
-                    if (searchQuery.isNotEmpty()) {
-                        IconButton(
-                            onClick = {
-                                searchQuery = ""
-                                isSearchExpanded = false
-                                focusManager.clearFocus()
-                            },
-                            modifier = Modifier.size(24.dp)
-                        ) {
-                            Icon(
-                                Icons.Default.Close,
-                                contentDescription = "Clear",
-                                tint = Color(0xFF5D5D52),
-                                modifier = Modifier.size(16.dp)
-                            )
-                        }
+                    }
+                }
+
+                // Help Button
+                Surface(
+                    onClick = { showHelpDialog = true },
+                    modifier = Modifier.size(if (isLandscape) 42.dp else 46.dp),
+                    shape = CircleShape,
+                    color = Color.White.copy(alpha = 0.98f),
+                    border = BorderStroke(1.5.dp, Color(0xFF162E51).copy(alpha = 0.25f)),
+                    shadowElevation = 6.dp
+                ) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "?",
+                            fontSize = if (isLandscape) 19.sp else 21.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF162E51)
+                        )
                     }
                 }
             }
