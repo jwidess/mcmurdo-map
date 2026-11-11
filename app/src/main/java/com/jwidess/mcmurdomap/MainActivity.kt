@@ -658,7 +658,7 @@ fun MapAppScreen(
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .heightIn(max = if (isLandscape) (screenHeight * 0.48f) else 380.dp)
+                                .heightIn(max = if (isLandscape) (screenHeight * 0.55f) else 460.dp)
                                 .verticalScroll(rememberScrollState()),
                             verticalArrangement = Arrangement.spacedBy(if (isLandscape) 6.dp else 10.dp)
                         ) {
@@ -982,6 +982,31 @@ fun MapAppScreen(
                                                 context.startActivity(intent)
                                             } catch (e: Exception) {}
                                         }
+                                    )
+                                }
+                            }
+
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color(0xFFF8FAFC),
+                                border = BorderStroke(1.dp, Color(0xFFE2E8F0))
+                            ) {
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 12.dp, vertical = if (isLandscape) 6.dp else 8.dp),
+                                    verticalArrangement = Arrangement.spacedBy(3.dp)
+                                ) {
+                                    Text(
+                                        text = "Disclaimer:",
+                                        fontSize = 11.sp,
+                                        color = Color(0xFF5D5D52)
+                                    )
+                                    Text(
+                                        text = "This is an independent open-source project and is not affiliated with, endorsed by, or officially associated with the United States Antarctic Program (USAP) or the National Science Foundation (NSF).",
+                                        fontSize = 11.sp,
+                                        color = Color(0xFF334155),
+                                        lineHeight = 15.sp
                                     )
                                 }
                             }
