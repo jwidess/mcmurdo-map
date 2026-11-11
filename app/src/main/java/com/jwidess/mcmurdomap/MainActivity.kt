@@ -946,6 +946,45 @@ fun MapAppScreen(
                                     )
                                 }
                             }
+
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color(0xFFF8FAFC),
+                                border = BorderStroke(1.dp, Color(0xFFE2E8F0))
+                            ) {
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 12.dp, vertical = if (isLandscape) 6.dp else 8.dp),
+                                    verticalArrangement = Arrangement.spacedBy(2.dp)
+                                ) {
+                                    Text(
+                                        text = "Project & Source Code:",
+                                        fontSize = 11.sp,
+                                        color = Color(0xFF5D5D52)
+                                    )
+                                    Text(
+                                        text = "GitHub Repository",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = Color(0xFF162E51)
+                                    )
+                                    Text(
+                                        text = "https://github.com/jwidess/mcmurdo-map",
+                                        fontSize = 11.sp,
+                                        color = Color(0xFF0085CA),
+                                        textDecoration = TextDecoration.Underline,
+                                        modifier = Modifier.clickable {
+                                            try {
+                                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jwidess/mcmurdo-map")).apply {
+                                                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                }
+                                                context.startActivity(intent)
+                                            } catch (e: Exception) {}
+                                        }
+                                    )
+                                }
+                            }
                         }
                     }
                 },

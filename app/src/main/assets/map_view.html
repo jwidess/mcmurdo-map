@@ -1939,7 +1939,7 @@
         }
       }, { passive: false });
 
-      // Item 7: Robust building detection helper with SCOTT_BASE support
+      // Robust building detection helper with layer-group filtering and SCOTT_BASE/TURBINES/POWER_STORE support
       function getBuildingIdFromElement(el) {
         if (!el) return null;
 
@@ -1949,15 +1949,26 @@
           return groupParent.id;
         }
 
-        if (el.id && !el.id.startsWith('UNKNOWN') && !el.id.startsWith('_')) {
-          if (el.id.startsWith('B') || el.closest('#Buildings_and_Structures, #Storage_Tanks, #Construction')) {
-            if (el.id !== 'Buildings_and_Structures' && el.id !== 'Storage_Tanks' && el.id !== 'Construction') {
-              return el.id;
-            }
+        const ignoredIds = new Set([
+          'Buildings_and_Structures',
+          'Storage_Tanks',
+          'Construction',
+          'Water_and_Sea_Ice',
+          'Shoreline',
+          'Roads_and_Trails',
+          'map-site'
+        ]);
+
+        // Direct element ID check (must not be an internal _ id or layer container group)
+        if (el.id && !el.id.startsWith('_') && !ignoredIds.has(el.id)) {
+          if (el.closest('#Buildings_and_Structures, #Storage_Tanks, #Construction')) {
+            return el.id;
           }
         }
-        if (el.parentElement && el.parentElement.id && !el.parentElement.id.startsWith('UNKNOWN') && !el.parentElement.id.startsWith('_')) {
-          if (el.parentElement.id.startsWith('B')) {
+
+        // Parent element ID check (must match building ID pattern, never a layer container group)
+        if (el.parentElement && el.parentElement.id && !el.parentElement.id.startsWith('_') && !ignoredIds.has(el.parentElement.id)) {
+          if (/^(B\d+|UNKNOWN)/i.test(el.parentElement.id)) {
             return el.parentElement.id;
           }
         }

@@ -17,10 +17,22 @@ with open("app/src/main/assets/map_core.svg", "r", encoding="utf-8") as f:
 
 svg_ids = set(re.findall(r'<[a-zA-Z]+\b[^>]*\bid=["\']([A-Za-z0-9_\-]+)["\']', svg))
 
+IGNORED_LAYER_GROUPS = {
+    "BUILDINGS_AND_STRUCTURES",
+    "STORAGE_TANKS",
+    "CONSTRUCTION",
+    "WATER_AND_SEA_ICE",
+    "SHORELINE",
+    "ROADS_AND_TRAILS",
+    "MAP-SITE"
+}
+
 missing = []
 for sid in sorted(svg_ids):
-    if sid.startswith(("B", "SCOTT", "TURB", "POWER", "DISCOVERY")):
-        clean_sid = sid.upper()
+    clean_sid = sid.upper()
+    if clean_sid in IGNORED_LAYER_GROUPS or clean_sid.startswith("_"):
+        continue
+    if sid.startswith(("B", "SCOTT", "TURB", "POWER", "DISCOVERY", "UNKNOWN", "D", "J", "M", "T", "HAZ", "RADOME", "SNOOPY")):
         if clean_sid not in known_ids and clean_sid[1:] not in known_ids:
             missing.append(sid)
 
