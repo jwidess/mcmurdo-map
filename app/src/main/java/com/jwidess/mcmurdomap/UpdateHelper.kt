@@ -9,7 +9,7 @@ import java.net.URL
 sealed interface UpdateState {
     object Idle : UpdateState
     object Checking : UpdateState
-    data class Available(val version: String, val releaseUrl: String, val downloadUrl: String?) : UpdateState
+    data class Available(val version: String, val releaseUrl: String) : UpdateState
     data class UpToDate(val version: String) : UpdateState
     data class Error(val message: String) : UpdateState
 }
@@ -66,28 +66,15 @@ object UpdateHelper {
             val responseText = conn.inputStream.bufferedReader().use { it.readText() }
             val json = JSONObject(responseText)
             val rawTagName = json.optString("tag_name", "").trim()
-            val releaseUrl = json.optString("html_url", "https://github.com/jwidess/mcmurdo-map/releases")
-
-            var apkDownloadUrl: String? = null
-            val assets = json.optJSONArray("assets")
-            if (assets != null) {
-                for (i in 0 until assets.length()) {
-                    val asset = assets.getJSONObject(i)
-                    val assetName = asset.optString("name", "")
-                    if (assetName.endsWith(".apk", ignoreCase = true)) {
-                        apkDownloadUrl = asset.optString("browser_download_url", "")
-                        break
-                    }
-                }
-            }
+            val releaseUrl = json.optString("html_url", "https://github.com/jwidess/mcmurdo-map/releases/latest")
+                .ifBlank { "https://github.com/jwidess/mcmurdo-map/releases/latest" }
 
             val displayVersion = formatVersion(rawTagName)
 
             if (rawTagName.isNotEmpty() && isVersionNewer(rawTagName, currentVersion)) {
                 UpdateState.Available(
                     version = displayVersion,
-                    releaseUrl = releaseUrl,
-                    downloadUrl = apkDownloadUrl
+                    releaseUrl = releaseUrl
                 )
             } else {
                 UpdateState.UpToDate(version = displayVersion)

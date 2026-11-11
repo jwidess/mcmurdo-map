@@ -28,12 +28,18 @@ This was built primarily for first time station personnel trying to navigate tow
 
 ## Installation
 
-Download the [latest APK release from the GitHub releases page HERE](https://github.com/jwidess/mcmurdo-map/releases/latest). Then copy the APK to your phone and install from a file manager or use ADB.
+Download the [latest APK release from the GitHub releases page HERE](https://github.com/jwidess/mcmurdo-map/releases/latest). Two editions are available:
+- **Full** (`McMurdoStationMap-full.apk`, ~30 MB): Includes all station photos, full map, building directory, and all 82 building information PDFs.
+- **Slim** (`McMurdoStationMap-slim.apk`, ~16 MB): Includes all station photos, full map, building directory, but **NO PDF building information sheets** to reduce download size.
 
-To use ADB to install the APK directly to your device:
+Copy the APK to your phone and install from a file manager or use ADB:
 
 ```bash
-adb install -r McMurdoStationMap.apk
+# Install Full
+adb install -r McMurdoStationMap-full.apk
+
+# Or install Slim
+adb install -r McMurdoStationMap-slim.apk
 ```
 
 ---

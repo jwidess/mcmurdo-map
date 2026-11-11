@@ -683,8 +683,9 @@ fun MapAppScreen(
                                             fontSize = 11.sp,
                                             color = Color(0xFF5D5D52)
                                         )
+                                        val editionLabel = if (BuildConfig.IS_SLIM_BUILD) " (Slim)" else " (Full)"
                                         Text(
-                                            text = "v${BuildConfig.VERSION_NAME}",
+                                            text = "v${BuildConfig.VERSION_NAME}$editionLabel",
                                             fontSize = 12.sp,
                                             fontWeight = FontWeight.Bold,
                                             color = Color(0xFF0085CA)
@@ -775,7 +776,7 @@ fun MapAppScreen(
                                                 Button(
                                                     onClick = {
                                                         try {
-                                                            val url = state.downloadUrl ?: state.releaseUrl
+                                                            val url = state.releaseUrl.ifBlank { "https://github.com/jwidess/mcmurdo-map/releases/latest" }
                                                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
                                                                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                                             }
@@ -798,6 +799,12 @@ fun MapAppScreen(
                                                         fontWeight = FontWeight.SemiBold
                                                     )
                                                 }
+                                                Text(
+                                                    text = "Select Full (~30MB) or Slim (~16MB) edition on GitHub.",
+                                                    fontSize = 10.sp,
+                                                    color = Color(0xFF475569),
+                                                    lineHeight = 13.sp
+                                                )
                                             }
                                         }
                                         is UpdateState.UpToDate -> {
@@ -888,8 +895,13 @@ fun MapAppScreen(
                                         fontWeight = FontWeight.Bold,
                                         color = Color(0xFF059669)
                                     )
+                                    val docsLabel = if (BuildConfig.IS_SLIM_BUILD) {
+                                        "${syncInfo.totalPhotos} photos (PDFs omitted in Slim build)"
+                                    } else {
+                                        "${syncInfo.totalPhotos} photos - ${syncInfo.totalDocs} PDFs"
+                                    }
                                     Text(
-                                        text = "${syncInfo.totalPhotos} photos - ${syncInfo.totalDocs} PDFs",
+                                        text = docsLabel,
                                         fontSize = 10.5.sp,
                                         color = Color(0xFF5D5D52)
                                     )
@@ -1245,28 +1257,80 @@ fun BuildingDetailContent(
             // PDF Info Sheet Button
             if (building.hasInfoSheet) {
                 Spacer(modifier = Modifier.height(14.dp))
-                Button(
-                    onClick = { onOpenPdf(building.infoSheet!!) },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(44.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF0085CA),
-                        contentColor = Color.White
-                    ),
-                    shape = RoundedCornerShape(6.dp)
-                ) {
-                    Icon(
-                        Icons.Default.PictureAsPdf,
-                        contentDescription = "PDF",
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        text = "Building Information Sheet (PDF)",
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 13.sp
-                    )
+                if (BuildConfig.IS_SLIM_BUILD) {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(44.dp)
+                                .clickable {
+                                    android.widget.Toast.makeText(
+                                        context,
+                                        "Info PDFs are omitted in the Slim build to reduce app size.",
+                                        android.widget.Toast.LENGTH_SHORT
+                                    ).show()
+                                },
+                            color = Color(0xFFF1F5F9),
+                            shape = RoundedCornerShape(6.dp),
+                            border = BorderStroke(1.dp, Color(0xFFE2E8F0))
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(horizontal = 12.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                Icon(
+                                    Icons.Default.PictureAsPdf,
+                                    contentDescription = "PDF Unavailable",
+                                    modifier = Modifier.size(18.dp),
+                                    tint = Color(0xFF94A3B8)
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(
+                                    text = "Building Information Sheet (PDF)",
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 13.sp,
+                                    color = Color(0xFF94A3B8)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "PDFs omitted in Slim build to reduce size (download Full build for PDFs)", 
+                            fontSize = 10.5.sp,
+                            color = Color(0xFF64748B),
+                            lineHeight = 14.sp
+                        )
+                    }
+                } else {
+                    Button(
+                        onClick = { onOpenPdf(building.infoSheet!!) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(44.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF0085CA),
+                            contentColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(6.dp)
+                    ) {
+                        Icon(
+                            Icons.Default.PictureAsPdf,
+                            contentDescription = "PDF",
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "Building Information Sheet (PDF)",
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 13.sp
+                        )
+                    }
                 }
             }
         }

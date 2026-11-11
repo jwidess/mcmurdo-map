@@ -47,6 +47,18 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions += "edition"
+    productFlavors {
+        create("full") {
+            dimension = "edition"
+            buildConfigField("Boolean", "IS_SLIM_BUILD", "false")
+        }
+        create("slim") {
+            dimension = "edition"
+            buildConfigField("Boolean", "IS_SLIM_BUILD", "true")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -90,4 +102,16 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     debugImplementation(libs.androidx.ui.tooling)
+}
+
+// Automatically exclude PDF spec sheets from merged assets for slim flavor builds
+tasks.matching { it.name.startsWith("mergeSlim") && it.name.endsWith("Assets") }.configureEach {
+    doLast {
+        val task = this as? com.android.build.gradle.tasks.MergeSourceSetFolders ?: return@doLast
+        val outputDir = task.outputDir.orNull?.asFile ?: return@doLast
+        val docDir = File(outputDir, "assets/documents")
+        if (docDir.exists()) {
+            docDir.deleteRecursively()
+        }
+    }
 }
