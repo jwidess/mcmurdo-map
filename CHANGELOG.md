@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/jwidess/mcmurdo-map/compare/v1.4.0...v1.4.1) (2026-11-11)
+
+
+### Bug Fixes
+
+* **map:** support UNKNOWN structures and add GH repo link to help modal ([b3d7a4b](https://github.com/jwidess/mcmurdo-map/commit/b3d7a4b05f78eff0c824f12ccaa24225c74de657))
+
 ## [1.4.0](https://github.com/jwidess/mcmurdo-map/compare/v1.3.0...v1.4.0) (2026-11-11)
 
 
