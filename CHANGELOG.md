@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.5.0](https://github.com/jwidess/mcmurdo-map/compare/v1.4.1...v1.5.0) (2026-11-12)
+
+
+### Features
+
+* Add disclaimer section to help modal ([ca3c48f](https://github.com/jwidess/mcmurdo-map/commit/ca3c48f81bd162b5cc57e349a1c8277c8a6880ad))
+* Move help button to search bar ([65b3c4d](https://github.com/jwidess/mcmurdo-map/commit/65b3c4d75fcbc750159761f99bf05f7d6aa44510))
+
+
+### Bug Fixes
+
+* Better orientation transitions and keep map viewport center ([edf901e](https://github.com/jwidess/mcmurdo-map/commit/edf901e24fd0fb8d553cc0021d82e8e9db5c5b54))
+
+
+### Performance Improvements
+
+* Increase max zoom and improve small building hitboxes ([cdb204f](https://github.com/jwidess/mcmurdo-map/commit/cdb204fec1592fc28750ee4ab875e5850e3c578d))
+
 ## [1.4.1](https://github.com/jwidess/mcmurdo-map/compare/v1.4.0...v1.4.1) (2026-11-11)
 
 
