@@ -215,7 +215,7 @@ svg_core = svg_core.replace('</svg>', f'  {labels_group}\n  <g id="tap-effects" 
 # Configure SVG tag
 svg_core = re.sub(
     r'<svg\b[^>]*>',
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3648.11 2160.44" id="map-site" preserveAspectRatio="none">',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3648.11 2160.44" id="map-site" preserveAspectRatio="xMidYMid slice">',
     svg_core,
     count=1
 )
@@ -237,8 +237,8 @@ html_template = """<!DOCTYPE html>
     html, body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       background-color: #daecf6;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
@@ -249,8 +249,8 @@ html_template = """<!DOCTYPE html>
       position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       background-color: #daecf6;
     }
@@ -500,7 +500,7 @@ html_template = """<!DOCTYPE html>
       let currentVB = { x: 0, y: 0, w: 1000, h: 1000 };
       let targetVB = { x: 0, y: 0, w: 1000, h: 1000 };
 
-      const MIN_WIDTH = 180;
+      const MIN_WIDTH = 60;
       const MAX_WIDTH = NATIVE_SVG_W * 1.6;
       const TAP_SLOP_PX = 18;
 
@@ -559,12 +559,17 @@ html_template = """<!DOCTYPE html>
         if (animate) {
           if (!animFrame) animFrame = requestAnimationFrame(animateViewBox);
         } else {
+          if (animFrame) {
+            cancelAnimationFrame(animFrame);
+            animFrame = null;
+          }
           currentVB = { ...targetVB };
           updateViewBox(currentVB);
         }
       }
 
       // --- Gesture Handling ---
+      let userMovedSinceFocus = false;
       let isDragging = false;
       let initialTouchPos = { x: 0, y: 0 };
       let lastTouchPos = { x: 0, y: 0 };
@@ -582,6 +587,7 @@ html_template = """<!DOCTYPE html>
           startTime = Date.now();
         } else if (e.touches.length === 2) {
           isDragging = true;
+          userMovedSinceFocus = true;
           lastPinchDist = Math.hypot(
             e.touches[0].clientX - e.touches[1].clientX,
             e.touches[0].clientY - e.touches[1].clientY
@@ -610,6 +616,7 @@ html_template = """<!DOCTYPE html>
           }
 
           if (isDragging) {
+            userMovedSinceFocus = true;
             const dx = e.touches[0].clientX - lastTouchPos.x;
             const dy = e.touches[0].clientY - lastTouchPos.y;
 
@@ -628,6 +635,7 @@ html_template = """<!DOCTYPE html>
           }
         } else if (e.touches.length === 2) {
           isDragging = true;
+          userMovedSinceFocus = true;
           const currentDist = Math.hypot(
             e.touches[0].clientX - e.touches[1].clientX,
             e.touches[0].clientY - e.touches[1].clientY
@@ -710,6 +718,7 @@ html_template = """<!DOCTYPE html>
         const dx = e.clientX - lastMouse.x;
         const dy = e.clientY - lastMouse.y;
         if (Math.hypot(e.clientX - startMouse.x, e.clientY - startMouse.y) > 6) {
+          userMovedSinceFocus = true;
           const rect = container.getBoundingClientRect();
           setTargetVB({
             x: targetVB.x - dx * (targetVB.w / rect.width),
@@ -741,6 +750,7 @@ html_template = """<!DOCTYPE html>
 
       container.addEventListener('wheel', (e) => {
         e.preventDefault();
+        userMovedSinceFocus = true;
         const factor = e.deltaY < 0 ? 0.8 : 1.25;
         let newW = targetVB.w * factor;
         if (newW < MIN_WIDTH) newW = MIN_WIDTH;
@@ -916,6 +926,8 @@ html_template = """<!DOCTYPE html>
           const newX = tapSvgX - newW / 2;
           const newY = tapSvgY - newH / 2;
 
+          userMovedSinceFocus = true;
+
           setTargetVB({
             x: newX,
             y: newY,
@@ -936,6 +948,34 @@ html_template = """<!DOCTYPE html>
           if (bldgId) {
             selectedId = bldgId;
             break;
+          }
+        }
+
+        // Hitbox tolerance for small buildings: if exact pixel missed, search a radius around the point
+        if (!selectedId) {
+          const radii = [6, 12];
+          const angles = [0, 45, 90, 135, 180, 225, 270, 315];
+          let bestDist = Infinity;
+
+          for (const r of radii) {
+            for (const deg of angles) {
+              const rad = (deg * Math.PI) / 180;
+              const testX = clientX + r * Math.cos(rad);
+              const testY = clientY + r * Math.sin(rad);
+              const nearbyElements = document.elementsFromPoint(testX, testY);
+              for (const el of nearbyElements) {
+                const bldgId = getBuildingIdFromElement(el);
+                if (bldgId) {
+                  if (r < bestDist) {
+                    bestDist = r;
+                    selectedId = bldgId;
+                  }
+                  break;
+                }
+              }
+              if (selectedId && bestDist <= 6) break;
+            }
+            if (selectedId) break;
           }
         }
 
@@ -985,6 +1025,7 @@ html_template = """<!DOCTYPE html>
             delete el.dataset.prevCat;
           }
         });
+        userMovedSinceFocus = false;
         if (notifyBridge && window.AndroidBridge && window.AndroidBridge.onBuildingDeselected) {
           try {
             window.AndroidBridge.onBuildingDeselected();
@@ -995,7 +1036,7 @@ html_template = """<!DOCTYPE html>
       };
 
       // Item 2: Focus building in the upper exposed map region (above ~58% bottom sheet)
-      function focusBuildingInTopRegion(bldgId) {
+      function focusBuildingInTopRegion(bldgId, animate = true) {
         const el = document.getElementById(bldgId);
         if (!el) return;
 
@@ -1005,27 +1046,28 @@ html_template = """<!DOCTYPE html>
           const centerY = bbox.y + bbox.height / 2;
 
           const aspect = getScreenAspect();
-          // Keep a comfortable zoom: if current zoom is within [220, 360], maintain it;
-          // otherwise clamp to 340 so building details and context are clear.
+          // Maintain current zoom if comfortable; otherwise clamp to comfortable overview
+          const maxOverviewW = aspect >= 1.0 ? 340 * aspect : 340;
           let targetW = targetVB.w;
-          if (targetW > 360) targetW = 340;
-          if (targetW < 200) targetW = 200;
+          if (targetW > maxOverviewW * 1.05) targetW = maxOverviewW;
+          if (targetW < MIN_WIDTH) targetW = MIN_WIDTH;
           targetW = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, targetW));
           const targetH = targetW / aspect;
 
-          // When the info modal is open at the bottom (covering ~58% of screen),
-          // the unobstructed upper map region is between ~12% (below search bar) and ~42% (above modal).
-          // Its vertical center is at ~27% from the top of the screen.
-          // Setting targetY = centerY - 0.27 * targetH places centerY exactly at 27% screen height.
+          // In landscape the search bar is in a side column, leaving the upper region open (~22%);
+          // In portrait, the top search bar leaves ~27% as the center of the upper region.
+          const focusRatioY = aspect >= 1.0 ? 0.22 : 0.27;
           const targetX = centerX - targetW / 2;
-          const targetY = centerY - 0.27 * targetH;
+          const targetY = centerY - focusRatioY * targetH;
+
+          userMovedSinceFocus = false;
 
           setTargetVB({
             x: targetX,
             y: targetY,
             w: targetW,
             h: targetH
-          }, true);
+          }, animate);
         } catch (e) {
           console.error("Failed to focus building in top region", e);
         }
@@ -1044,6 +1086,8 @@ html_template = """<!DOCTYPE html>
       window.fitBuildingsInView = function(idsJson) {
         const ids = typeof idsJson === 'string' ? JSON.parse(idsJson) : idsJson;
         if (!ids || ids.length === 0) return;
+
+        userMovedSinceFocus = true;
 
         let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
         let count = 0;
@@ -1103,17 +1147,25 @@ html_template = """<!DOCTYPE html>
         });
       };
 
+      function getDefaultSpanW() {
+        const aspect = getScreenAspect();
+        return aspect >= 1.0 ? Math.max(DEFAULT_SPAN_W, 520 * aspect) : DEFAULT_SPAN_W;
+      }
+
       window.resetView = function() {
-        setTargetVB(buildTargetVB(STATION_CENTER.x, STATION_CENTER.y, DEFAULT_SPAN_W), true);
+        userMovedSinceFocus = true;
+        setTargetVB(buildTargetVB(STATION_CENTER.x, STATION_CENTER.y, getDefaultSpanW()), true);
       };
 
       window.zoomIn = function() {
+        userMovedSinceFocus = true;
         const centerX = targetVB.x + targetVB.w / 2;
         const centerY = targetVB.y + targetVB.h / 2;
         setTargetVB(buildTargetVB(centerX, centerY, targetVB.w * 0.65), true);
       };
 
       window.zoomOut = function() {
+        userMovedSinceFocus = true;
         const centerX = targetVB.x + targetVB.w / 2;
         const centerY = targetVB.y + targetVB.h / 2;
         setTargetVB(buildTargetVB(centerX, centerY, targetVB.w * 1.45), true);
@@ -1141,14 +1193,71 @@ html_template = """<!DOCTYPE html>
       bindButton('btn-zoom-out', window.zoomOut);
       bindButton('btn-reset', window.resetView);
 
-      window.addEventListener('resize', () => {
-        const aspect = getScreenAspect();
-        targetVB.h = targetVB.w / aspect;
-        currentVB.h = currentVB.w / aspect;
-        updateViewBox(currentVB);
-      });
+      let lastContainerW = 0;
+      let lastContainerH = 0;
 
-      setTargetVB(buildTargetVB(STATION_CENTER.x, STATION_CENTER.y, DEFAULT_SPAN_W), false);
+      function handleResize() {
+        const newContainerW = container.clientWidth || window.innerWidth;
+        const newContainerH = container.clientHeight || window.innerHeight;
+        if (!newContainerW || !newContainerH) return;
+
+        if (lastContainerW <= 0 || lastContainerH <= 0) {
+          lastContainerW = newContainerW;
+          lastContainerH = newContainerH;
+          return;
+        }
+
+        if (Math.abs(newContainerW - lastContainerW) < 2 && Math.abs(newContainerH - lastContainerH) < 2) {
+          return;
+        }
+
+        const aspect = newContainerW / newContainerH;
+        const scaleFactor = newContainerW / lastContainerW;
+
+        if (animFrame) {
+          cancelAnimationFrame(animFrame);
+          animFrame = null;
+        }
+
+        const activeEl = document.querySelector('.building-active');
+        if (activeEl && !userMovedSinceFocus) {
+          let newW = targetVB.w * scaleFactor;
+          newW = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, newW));
+          targetVB.w = newW;
+          currentVB.w = newW;
+          targetVB.h = newW / aspect;
+          currentVB.h = targetVB.h;
+          focusBuildingInTopRegion(activeEl.id, false);
+        } else {
+          // Preserve the exact geographic center of the viewport and visual scale
+          const prevTargetCenterX = targetVB.x + targetVB.w / 2;
+          const prevTargetCenterY = targetVB.y + targetVB.h / 2;
+
+          let newTargetW = targetVB.w * scaleFactor;
+          newTargetW = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, newTargetW));
+          const newTargetH = newTargetW / aspect;
+
+          targetVB = {
+            x: prevTargetCenterX - newTargetW / 2,
+            y: prevTargetCenterY - newTargetH / 2,
+            w: newTargetW,
+            h: newTargetH
+          };
+
+          currentVB = { ...targetVB };
+
+          updateViewBox(currentVB);
+        }
+
+        lastContainerW = newContainerW;
+        lastContainerH = newContainerH;
+      }
+
+      window.addEventListener('resize', handleResize);
+
+      lastContainerW = container.clientWidth || window.innerWidth || 1080;
+      lastContainerH = container.clientHeight || window.innerHeight || 2400;
+      setTargetVB(buildTargetVB(STATION_CENTER.x, STATION_CENTER.y, getDefaultSpanW()), false);
 
       // Signal to Android that initial map layout, SVG parsing and viewBox are completely ready
       requestAnimationFrame(() => {
